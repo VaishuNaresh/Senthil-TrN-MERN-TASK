@@ -7,6 +7,7 @@ const {
     getSingleUser,
      updateUser,
     deleteUser,
+    setAgeFilter,
 } = require("../controllers/userController");
 const { body } = require("express-validator");
 
@@ -21,7 +22,9 @@ router.post("/userCustomer",[
     body("secretQuestion3").notEmpty().withMessage("Secret question 3 is required"),
     body("secretAnswer3").notEmpty().withMessage("Secret answer 3 is required"),
 ], createUser);
-router.get("/userCustomer", getAllUsers);
+router.get("/userCustomer",
+    // setAgeFilter,
+    getAllUsers);
 // router.get("/userCustomer/:id", getSingleUser);
 // 
 router.put("/userCustomer/:id", updateUser);
